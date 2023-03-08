@@ -34,7 +34,6 @@ jobs:
     container:
      image: cypress/browsers:node18.12.0-chrome103-ff107
      options: --user 1001
-     
     steps:
       - name: Get code
         uses: actions/checkout@v3.3.0
@@ -50,8 +49,6 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: be80df35-24be-487c-aeb8-a1ddbd172abd
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     
-     
   cypress-e2e-firefox:
     needs: cypress-e2e-electron
     runs-on: ubuntu-latest
@@ -68,7 +65,7 @@ jobs:
           install-command: yarn install
           browser: firefox
           record: true
-          group: UI firefox
+          group: UI Firefox
           spec: ${{ github.event.inputs.spec }}
         env:
           CYPRESS_RECORD_KEY: be80df35-24be-487c-aeb8-a1ddbd172abd
